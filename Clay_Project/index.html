@@ -1,0 +1,348 @@
+<html>
+<head>
+<title>League of Legends</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="clay.css" rel="stylesheet">  
+</head>
+<body>
+<div id="div_items">
+
+    <table id="table_items" onclick="calc_Orianna(document.getElementById('input_q_level').value,document.getElementById('input_w_level').value, document.getElementById('input_e_level').value,document.getElementById('input_r_level').value)">
+        <th class="th_items"></th><th class="th_items"></th>
+        <tr class="tr_items"><td class="td_items" onclick="push_Item(ruby_crystal)"><img src="img/Ruby_Crystal_item.png"></td> <td class="td_items" onclick="push_Item(long_sword)"><img src="img/Long_Sword_item.png"></td> <td class="td_items" onclick="push_Item(amplifying_tome)"><img src="img/Amplifying_Tome_item.png"></td></tr>
+        <tr class="tr_items"><td class="td_items" onclick="push_Item(cloth_armor)"><img src="img/Cloth_Armor_item.png"></td> <td class="td_items" onclick="push_Item(null_magic_mantle)"><img src="img/Null-Magic_Mantle_item.png"></td> <td class="td_items"></td></tr>
+    </table>
+
+
+</div>
+
+
+<div id="div_inventory" onclick="calc_Orianna(document.getElementById('input_q_level').value,document.getElementById('input_w_level').value, document.getElementById('input_e_level').value,document.getElementById('input_r_level').value)">
+    <table id="table_inventory">
+        <th class="th_inventory"></th><th class="th_inventory"></th>
+        <tr class="tr_inventory"><td class="td_inventory" id="td_inventory_1" onclick="deleteSlot(0)"></td> <td class="td_inventory" id="td_inventory_2" onclick="deleteSlot(1)"></td> <td class="td_inventory" id="td_inventory_3" onclick="deleteSlot(2)"></td></tr>
+        <tr class="tr_inventory"><td class="td_inventory" id="td_inventory_4" onclick="deleteSlot(3)"></td> <td class="td_inventory" id="td_inventory_5" onclick="deleteSlot(4)"></td> <td class="td_inventory" id="td_inventory_6" onclick="deleteSlot(5)"></td></tr>
+    </table>
+
+</div>
+    <div id="div_stats">
+    <table class="table_stats">
+        <th class="th_stats">Stats</th><th> Value</th> 
+        <tr class="tr_stats_title"><td class="td_stats">HP</td><td class="td_stats_value" id="td_stats_HP">0</td></tr>
+        <tr class="tr_stats_title"><td class="td_stats">AD</td><td class="td_stats_value"  id="td_stats_AD" >0</td></tr>
+        <tr class="tr_stats_title"><td class="td_stats">AP</td><td class="td_stats_value" id="td_stats_AP">0</td></tr>
+        <tr class="tr_stats_title"><td class="td_stats">Armor</td><td class="td_stats_value" id="td_stats_armor">0</td></tr>
+        <tr class="tr_stats_title"><td class="td_stats">MR</td><td class="td_stats_value" id="td_stats_MR">0</td></tr>
+    </table>
+    </div>
+    <div id="div_abilities">
+    <table class="table_abilities">
+        <th class="th_abilities">Abilities</th><th> Value</th><th>Level</th> 
+        <tr class="tr_abilities_title"><td class="td_abilities">Passive</td><td class="td_abilities_value" id="td_abilities_passive_value">0</td></tr>
+        <tr class="tr_abilities_title"><td class="td_abilities"><button onclick="add_Box('Q')">Q</button></td><td class="td_abilities_value"  id="td_abilities_q_value" >0</td><td class="td_abilities_qwe_ticker" id="td_abilities_q_ticker"><input type="number" value ="0" id="input_q_level" min="0" max="5" step="1"  onchange="calc_Orianna(document.getElementById('input_q_level').value,document.getElementById('input_w_level').value, document.getElementById('input_e_level').value,document.getElementById('input_r_level').value)"></td></tr>
+        <tr class="tr_abilities_title"><td class="td_abilities"><button onclick="add_Box('W')">W</button></td><td class="td_abilities_value" id="td_abilities_w_value">0</td><td class="td_abilities_qwer_ticker" id="td_abilities_w_ticker"><input type="number" value ="0" id="input_w_level" min="0" max="5" step="1"  onchange="calc_Orianna(document.getElementById('input_q_level').value,document.getElementById('input_w_level').value, document.getElementById('input_e_level').value,document.getElementById('input_r_level').value)"></td></tr>
+        <tr class="tr_abilities_title"><td class="td_abilities"><button onclick="add_Box('E')">E</button></td><td class="td_abilities_value" id="td_abilities_e_value">0</td><td class="td_abilities_qwer_ticker" id="td_abilities_e_ticker"><input type="number" value ="0" id="input_e_level" min="0" max="5" step="1"  onchange="calc_Orianna(document.getElementById('input_q_level').value,document.getElementById('input_w_level').value, document.getElementById('input_e_level').value,document.getElementById('input_r_level').value)"></td></tr>
+        <tr class="tr_abilities_title"><td class="td_abilities"><button onclick="add_Box('R')">R</button></td><td class="td_abilities_value" id="td_abilities_r_value">0</td><td class="td_abilities_qwer_ticker" id="td_abilities_r_ticker"><input type="number" value ="0" id="input_r_level" min="0" max="3" step="1"  onchange="calc_Orianna(document.getElementById('input_q_level').value,document.getElementById('input_w_level').value, document.getElementById('input_e_level').value,document.getElementById('input_r_level').value)"></td></tr>
+        <tr class="tr_abilities_title"><td class="td_abilities"><button onclick="add_Box('AA')">AA</button></td><td class="td_abilities_value" id="td_abilities_aa_value">0</td></tr>
+    </table>
+    </div>
+
+
+
+<div id="div_skill_usage">
+    <table id="table_skill_usage">
+        <th class="th_skill_usage"></th><th class="th_skill_usage"></th>
+        <tr class="tr_skill_usage"><div id="div_skill_usage_builder"></div></tr>
+        <tr class="tr_skill_usage"><td id="td_skill_usage_total_damage">0</td></tr>
+    </table>
+
+</div>
+<button onclick="push_Champion(champion_garen)">Garen</button>
+<button onclick="push_Champion(champion_orianna)">Orianna</button>
+<button onclick="push_Champion(champion_ashe)">Ashe</button>
+<button onclick="add_Box()">Add Box</button>
+</body>
+<script> 
+var inventory = [];
+var selected_champion = [];
+
+var hp = parseFloat(document.getElementById("td_stats_HP").innerHTML );
+var ad = parseFloat(document.getElementById("td_stats_AD").innerHTML);
+var ap = parseFloat(document.getElementById("td_stats_AP").innerHTML);
+var armor = parseFloat(document.getElementById("td_stats_armor").innerHTML);
+var mr = parseFloat(document.getElementById("td_stats_MR").innerHTML); 
+
+var passive = parseFloat(document.getElementById("td_abilities_passive_value").innerHTML);
+var q_value = parseFloat(document.getElementById("td_abilities_q_value").innerHTML);
+var w_value = parseFloat(document.getElementById("td_abilities_w_value").innerHTML);
+var e_value = parseFloat(document.getElementById("td_abilities_e_value").innerHTML);
+var r_value = parseFloat(document.getElementById("td_abilities_r_value").innerHTML);
+var aa_value = parseFloat(document.getElementById("td_abilities_aa_value").innerHTML);
+
+
+//var q_level = parseFloat(document.getElementById("test_id").value);
+
+var ruby_crystal = [];
+ruby_crystal[0]= 150;
+ruby_crystal[1]= 0;
+ruby_crystal[2]= 0;
+ruby_crystal[3]= 0;
+ruby_crystal[4]= 0;
+ruby_crystal[5]="img/Ruby_Crystal_item.png";
+var long_sword = [];
+long_sword[0]= 0;
+long_sword[1]= 10;
+long_sword[2]= 0;
+long_sword[3]= 0;
+long_sword[4]= 0;
+long_sword[5]= "img/Long_Sword_item.png";
+var amplifying_tome = [];
+amplifying_tome[0]= 0;
+amplifying_tome[1]= 0;
+amplifying_tome[2]= 20;
+amplifying_tome[3]= 0;
+amplifying_tome[4]= 0;
+amplifying_tome[5]="img/Amplifying_Tome_item.png";
+var cloth_armor = [];
+cloth_armor[0]= 0;
+cloth_armor[1]= 0;
+cloth_armor[2]= 0;
+cloth_armor[3]= 15;
+cloth_armor[4]= 0;
+cloth_armor[5]="img/Cloth_Armor_item.png";
+var null_magic_mantle = [];
+null_magic_mantle[0]= 0;
+null_magic_mantle[1]= 0;
+null_magic_mantle[2]= 0;
+null_magic_mantle[3]= 0;
+null_magic_mantle[4]= 25;
+null_magic_mantle[5]="img/Null-Magic_Mantle_item.png";
+
+var champion_garen = [];
+champion_garen[0] = 620;//hp
+champion_garen[1] = 66;//ad
+champion_garen[2] = 0;
+champion_garen[3] = 36;
+champion_garen[4] = 32.1;
+
+var champion_orianna = [];
+champion_orianna[0] = 530;//hp
+champion_orianna[1] = 40.368;//ad
+champion_orianna[2] = 0;
+champion_orianna[3] = 17.04;
+champion_orianna[4] = 26;
+
+var current_q_damage;
+var current_w_damage;
+var current_e_damage;
+var current_r_damage;
+
+function calc_Orianna(q_lvl, w_lvl, e_lvl, r_lvl){
+    var q_scaling = 0.5 * ap;
+    var w_scaling = 0.7 * ap;
+    var e_scaling = 0.3 * ap;
+    var r_scaling = 0.8 * ap;
+
+    var q_base = [];
+    q_base[0] = 0;
+    q_base[1] = 60;
+    q_base[2] = 90;
+    q_base[3] = 120;
+    q_base[4] = 150;
+    q_base[5] = 180;
+    var w_base = [];
+    w_base[0] = 0;
+    w_base[1] = 60;
+    w_base[2] = 105;
+    w_base[3] = 150;
+    w_base[4] = 195;
+    w_base[5] = 240;
+    var e_base = [];
+    e_base[0] = 0;
+    e_base[1] = 60;
+    e_base[2] = 90;
+    e_base[3] = 120;
+    e_base[4] = 150;
+    e_base[5] = 180;
+    var r_base = [];
+    r_base[0] = 0; 
+    r_base[1] = 200;
+    r_base[2] = 275;
+    r_base[3] = 350; 
+
+    current_q_damage = q_base[q_lvl] + q_scaling;
+    current_w_damage = w_base[w_lvl] + w_scaling;
+    current_e_damage = e_base[e_lvl] + e_scaling;
+    current_r_damage = r_base[r_lvl] + r_scaling;
+    current_aa_damage = ad;
+    document.getElementById("td_abilities_q_value").innerHTML = q_base[q_lvl] + q_scaling;
+    document.getElementById("td_abilities_w_value").innerHTML = w_base[w_lvl] + w_scaling;
+    document.getElementById("td_abilities_e_value").innerHTML = e_base[e_lvl] + e_scaling;
+    document.getElementById("td_abilities_r_value").innerHTML = r_base[r_lvl] + r_scaling;
+}
+
+
+var champion_ashe = [];
+champion_ashe[0] = 539;//hp
+champion_ashe[1] = 61;//ad
+champion_ashe[2] = 0;
+champion_ashe[3] = 26;
+champion_ashe[4] = 32.1;
+
+function push_Champion(item){
+    if(selected_champion.length < 1){
+        selected_champion.push(item);
+        checkStats(item);
+        checkInventory();
+    }
+    else{
+        remove_Champion(selected_champion[0]);
+        selected_champion.splice(0,1);
+        selected_champion.push(item);
+        checkStats(item);
+        checkInventory();
+    }
+}
+
+function push_Item(item){
+    if(inventory.length<6){
+    inventory.push(item);
+    checkStats(item);
+    checkInventory();
+    }
+}
+
+function deleteSlot(value){
+    removeStats(value);
+    inventory.splice(value,1);
+    checkInventory();
+}
+
+function checkStats(item){
+
+hp = hp + item[0];
+document.getElementById("td_stats_HP").innerHTML = hp;
+
+ad = ad + item[1];
+document.getElementById("td_stats_AD").innerHTML = ad;
+
+ap = ap + item[2];
+document.getElementById("td_stats_AP").innerHTML = ap;
+
+armor = armor + item[3];
+document.getElementById("td_stats_armor").innerHTML = armor;
+
+mr = mr + item[4];
+document.getElementById("td_stats_MR").innerHTML = mr;
+
+}
+
+
+function removeStats(index){
+
+hp = hp - inventory[index][0];
+document.getElementById("td_stats_HP").innerHTML = hp;
+
+ad = ad - inventory[index][1];
+document.getElementById("td_stats_AD").innerHTML = ad;
+
+ap = ap - inventory[index][2];
+document.getElementById("td_stats_AP").innerHTML = ap;
+
+armor = armor - inventory[index][3];
+document.getElementById("td_stats_armor").innerHTML = armor;
+
+mr = mr - inventory[index][4];
+document.getElementById("td_stats_MR").innerHTML = mr;
+
+}
+function remove_Champion(index){
+hp = hp - index[0];
+document.getElementById("td_stats_HP").innerHTML = hp;
+
+ad = ad - index[1];
+document.getElementById("td_stats_AD").innerHTML = ad;
+
+ap = ap - index[2];
+document.getElementById("td_stats_AP").innerHTML = ap;
+
+armor = armor - index[3];
+document.getElementById("td_stats_armor").innerHTML = armor;
+
+mr = mr - index[4];
+document.getElementById("td_stats_MR").innerHTML = mr;
+
+
+}
+
+
+function checkInventory(item, index){
+document.getElementById("td_inventory_1").innerHTML = ''; 
+document.getElementById("td_inventory_2").innerHTML = ''; 
+document.getElementById("td_inventory_3").innerHTML = ''; 
+document.getElementById("td_inventory_4").innerHTML = ''; 
+document.getElementById("td_inventory_5").innerHTML = ''; 
+document.getElementById("td_inventory_6").innerHTML = ''; 
+
+    for(i=0;i<inventory.length;i++){
+        document.getElementById("td_inventory_1").innerHTML = '<img src=' + inventory[0][5] + '>'; 
+        document.getElementById("td_inventory_2").innerHTML = '<img src=' + inventory[1][5] + '>'; 
+        document.getElementById("td_inventory_3").innerHTML = '<img src=' + inventory[2][5] + '>'; 
+        document.getElementById("td_inventory_4").innerHTML = '<img src=' + inventory[3][5] + '>'; 
+        document.getElementById("td_inventory_5").innerHTML = '<img src=' + inventory[4][5] + '>'; 
+        document.getElementById("td_inventory_6").innerHTML = '<img src=' + inventory[5][5] + '>'; 
+    }
+}
+var box_iter = 0;
+var total_damage = 0;
+function add_Box(ability){
+    calc_Orianna(document.getElementById('input_q_level').value,document.getElementById('input_w_level').value, document.getElementById('input_e_level').value,document.getElementById('input_r_level').value);
+    box_iter += 1;
+    document.getElementById("div_skill_usage_builder").innerHTML += "<button id ='box_iter_" + box_iter + "'" +  "onclick='remove_Box(" + "\"box_iter_" + box_iter +"\")'" + '">' + ability + "</button>";
+    if(ability == 'Q'){                                                                                                                                                // onclick="removeBox("box_iter_+ box_iter)"
+        total_damage += current_q_damage;
+    }
+    else if(ability == 'W'){
+        total_damage += current_w_damage;
+    }
+    else if(ability == 'E'){
+        total_damage += current_e_damage;
+    }
+    else if(ability == 'R'){
+        total_damage += current_r_damage;
+    }
+    else if(ability == 'AA'){
+        total_damage += current_aa_damage;
+    }
+    document.getElementById("td_skill_usage_total_damage").innerHTML = total_damage;
+}
+function remove_Box(id){
+
+var ability_type = document.getElementById(id).innerHTML;
+if(ability_type == 'Q'){                                                                                                                                                // onclick="removeBox("box_iter_+ box_iter)"
+        total_damage -= current_q_damage;
+    }
+    else if(ability_type == 'W'){
+        total_damage -= current_w_damage;
+    }
+    else if(ability_type == 'E'){
+        total_damage -= current_e_damage;
+    }
+    else if(ability_type == 'R'){
+        total_damage -= current_r_damage; 
+    }
+    else if(ability_type == 'AA'){
+        total_damage -= current_aa_damage;
+    }
+    calc_Orianna(document.getElementById('input_q_level').value,document.getElementById('input_w_level').value, document.getElementById('input_e_level').value,document.getElementById('input_r_level').value);
+  
+    document.getElementById("td_skill_usage_total_damage").innerHTML = total_damage;
+document.getElementById(id).remove();
+
+}
+</script>
+
+</html>
+
+

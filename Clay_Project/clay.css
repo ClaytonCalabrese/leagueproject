@@ -1,0 +1,42 @@
+#div_items{
+width:fit-content;
+height:fit-content;
+}
+
+#div_inventory{
+    width:fit-content;
+    height:fit-content;
+}
+
+#div_stats_abilities{
+    width:fit-content;
+    height:fit-content;
+    float:left;
+}
+#div_stats{
+    background-color:green;
+    width:fit-content;
+    height:fit-content;
+    
+    float:left;
+    padding:5px;
+}
+#div_abilities{
+    background-color:yellow;
+    width:fit-content;
+    height:fit-content;
+    
+    float:left;
+    padding:5px;
+}
+.td_items{
+    border:1px solid black;
+    width:64px;
+    height:64px;
+}
+
+.td_inventory{
+    border:1px solid black;
+    width:64px;
+    height:64px;
+}
